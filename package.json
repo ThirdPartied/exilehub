@@ -6,22 +6,43 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "codegen": "npm run codegen-poestack && npm run codegen-local",
+    "codegen-poestack": "graphql-codegen --config codegen-poestack.ts",
+    "codegen-local": "graphql-codegen --config codegen-local.ts",
+    "seed": "set NODE_ENV=development&& npx tsx db/mongodb/seeders/seeder.ts"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.10",
+    "@apollo/experimental-nextjs-app-support": "^0.6.0",
+    "@apollo/server": "^4.10.0",
+    "@as-integrations/next": "^3.0.0",
+    "concurrently": "^8.2.2",
+    "dotenv": "^16.4.0",
+    "express": "^4.18.2",
+    "graphql": "^16.8.1",
+    "graphql-tag": "^2.12.6",
+    "mongoose": "^8.1.0",
+    "next": "^14.1.0",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.1.0"
+    "unique-names-generator": "^4.7.1"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@faker-js/faker": "^8.4.0",
+    "@graphql-codegen/cli": "5.0.0",
+    "@graphql-codegen/introspection": "4.0.0",
+    "@graphql-codegen/typescript": "4.0.1",
+    "@graphql-codegen/typescript-document-nodes": "4.0.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.0",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.0"
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
   }
 }
